@@ -1,4 +1,12 @@
-# Undum
+# Práctica 2 - El paseíto
+
+blablabla
+
+## Foto sobre el estado inicial de Trello
+
+Aquí va una foto sobre el estado incial del tablero de Trello
+
+## Undum
 
 Undum is a game framework for building a sophisticated form of
 hypertext interactive fiction.

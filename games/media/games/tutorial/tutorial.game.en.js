@@ -7,7 +7,7 @@
 /* A unique id for your game. This is never displayed. I use a UUID,
  * but you can use anything that is guaranteed unique (a URL you own,
  * or a variation on your email address, for example). */
-undum.game.id = "be1c95b9-cbc7-48c6-8e6a-89837aa9113e";
+undum.game.id = "jgg00085redujaenes";
 
 /* A string indicating what version of the game this is. Versions are
  * used to control saved-games. If you change the content of a game,
@@ -29,21 +29,14 @@ undum.game.slideUpSpeed = 500
 /* The situations that the game can be in. Each has a unique ID. */
 undum.game.situations = {
     start: new undum.SimpleSituation(
-        "<h1>Starting Out with Undum</h1>\
-        <img src='media/games/tutorial/woodcut1.png' class='float_right'>\
-        <p>Welcome to the Undum tutorial. Undum is a tool for writing\
-        hypertext interactive fiction. It has some unique features\
-        and a visual design that encourages narrative games.</p>\
+        "<h1>Estás en casa viciándote como siempre...</h1>\
+        <img src='media/games/tutorial/woodcut1.png' class='float_center'>\
+        <p>\"Buenas nocheS! I've heard you come in the behalf of Mr. Rosenberg. I hope his...</p>\
         \
-        <p>Hypertext interactive fiction is the digital equivalent of the\
-        Choose Your Own Adventure (CYOA) books that were popular in the\
-        1980s. The story is told in chunks, and you select from a range\
-        of options to move it forward. Unlike the book form, however, the\
-        digital form gives you far more flexibility to tell rich stories\
-        and introduce more interesting game elements.</p>\
+        <p>Yo: Buah, otra vez se ha cerrado el juego este. Desde que instalé la versión definitiva del GTA Trilogy todo son problemas, macho.</p>\
         \
-        <p class='transient'>Click <a href='hub'>this link to\
-        continue...</a></p>"
+        <p class='transient'>Pincha <a href='hub'>aquí para\
+        continuar...</a></p>"
     ),
 
     // NB: The 'hub' situation which is the main list of topics, is
