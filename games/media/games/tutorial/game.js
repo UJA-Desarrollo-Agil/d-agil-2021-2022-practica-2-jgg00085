@@ -94,6 +94,7 @@ undum.game.situations = {
     ),
     espectaculopartedos: new undum.SimpleSituation(
         "<h1>La decepción</h1>\
+        <img src='media/img/goyojimenez.jpg' class='float_center' style='width: 500px;'>\
         <p class='transient'>Tras tanto lío, acabas sentado detrás de un cabezón que no te deja ver apenas, y flanqueado a ambos lados por un señor mayor que no parece entender el monólogo\
         y la típica parejita que, para a ver venido a lo que están haciendo, mejor haber pillado una habitación de hotel...</p>\
         <p> Al final, optas por <a href='./aguantar'>aguantarte</a> e intentar disfrutar el monólogo en la medida de lo posible, o por <a href='salirporpatas'>irte antes de tiempo</a></p>",
@@ -121,13 +122,14 @@ undum.game.situations = {
                     <a href='finaltrasteatro'>vuelves a casa</a>.</p>");
                 },
                 "rechazarcotilla": function (character, system, to) {
-                    system.write("<p>te quedas esperando cual mendigo en el portal de casa, hasta que aparece tu familia y <a href='finaltrasteatro'>vuelves a casa</a>.</p>");
+                    system.write("<p>Te quedas esperando cual mendigo en el portal de casa, hasta que aparece tu familia y <a href='finaltrasteatro'>vuelves a casa</a>.</p>");
                 }
             }
         }
     ),
     finaltrasteatro: new undum.SimpleSituation(
-        "<h1>FIN</h1>"
+        "<h1>FIN</h1>\
+        <p>De vuelta a tu cueva, te sientas en el PC y vuelves a abrir el \"bendito\" Grand Theft Auto Vice City.</p>"
     ),
     finalcallesinnada: new undum.SimpleSituation(
         "<p>Sales a la calle sin llevarte absolutamente nada, no sabes donde están tus amigos, ni puedes volver a casa pues te dejaste las llaves.</p>\
