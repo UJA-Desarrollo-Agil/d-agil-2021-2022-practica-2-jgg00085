@@ -36,13 +36,13 @@ A continuación, se ofrecerá un enlace al tablero de Trello, y algunas capturas
 
 La primera imagen muestra el tablero de Trello recién creado.
 
-![CapturaInicioTrello](https://github.com/UJA-Desarrollo-Agil/d-agil-2021-2022-practica-2-jgg00085/tree/master/documentacion/tableroiniciado.png)
+![CapturaInicioTrello](https://github.com/UJA-Desarrollo-Agil/d-agil-2021-2022-practica-2-jgg00085/blob/master/documentacion/tableroiniciado.png)
 
 _Captura de Trello al comenzar la práctica_
 
 La segunda imagen muestra el tablero tras haber completado el proceso de desarrollo. Se puede notar diferencias, como nuevas tarjetas y la eliminación de otras antiguas debido a cambios en la historia.
 
-![CapturaFinTrello](https://github.com/UJA-Desarrollo-Agil/d-agil-2021-2022-practica-2-jgg00085/tree/master/documentacion/tableroterminado.png)
+![CapturaFinTrello](https://github.com/UJA-Desarrollo-Agil/d-agil-2021-2022-practica-2-jgg00085/blob/master/documentacion/tableroterminado.png)
 
 _Captura final de Trello_
 
@@ -50,6 +50,6 @@ _Captura final de Trello_
 
 En el caso de Telegram, solo se ofrecerán capturas del bot de GitHub, pues ha sido el único de los dos funcional durante el proceso de desarrollo.
 
-![CapturaTelegram](https://github.com/UJA-Desarrollo-Agil/d-agil-2021-2022-practica-2-jgg00085/tree/master/documentacion/telegram.png)
+![CapturaTelegram](https://github.com/UJA-Desarrollo-Agil/d-agil-2021-2022-practica-2-jgg00085/blob/master/documentacion/telegram.png)
 
 _Captura de Telegram notificando durante el proceso de desarrollo_
