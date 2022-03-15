@@ -43,10 +43,22 @@ undum.game.situations = {
     ),
     movil: new undum.SimpleSituation(
         "<p>Dejas de lado el ordenador, y te dispones a mirar lo que sucede en el mundo.</p>\
-        <p>Vamos, que desbloqueas tu FlyPhone 14 Pro MiniMax y abres Twitter</p>\
-        <p class='transient'><a href='calle'>Sales a la calle</a></p>",
+        <p>Vamos, que desbloqueas tu FlyPhone 14 Pro MiniMax y abres Twitter e Instagram, en el que pierdes más de media hora mirando las tonterías de siempre, como\
+        las encuestas viendo si sube o baja la intención de voto de según que bloques en una provincia que no sabes ni situar en un mapa o mirando vídeos de perritos y comida.</p>\
+        <p>En todo este tiempo no te salta ningún mensaje, ni siquiera de tu novia, que está de viaje en Madrid y, cuando te das cuenta, ves que el tiempo se te ha echado encima, pues habías\
+        quedado para ver la obra de Goyo Jiménez, el de los americanos, en el Infanta Leonor. </p>\
+        <p>Así que te dispones a <a href='./cogercosas'>coger las cosas</a> o <a href='finalcallesinnada'>sales directamente sin nada</a>.</p>",
         {
-            heading: "Mirando el FlyPhone"
+            heading: "Mirando el FlyPhone",
+            actions: {
+                "cogercosas": function (character, system, to) {
+                    system.write("<p>Coges el móvil, las llaves, la cartera y tu chaqueta y te dispones a salir a la calle.</p>\
+                    <p class='transient'><a href='calle'>Sales a la calle</a></p>");
+                    system.setQuality("llaves", 1);
+                    system.setQuality("cartera", 1);
+                    system.setQuality("chaqueta", 1);
+                }
+            }
         }
     ),
     calle: new undum.SimpleSituation(
@@ -68,6 +80,11 @@ undum.game.situations = {
         "<p>FIN</p>"
 
     ),
+    finalcallesinnada: new undum.SimpleSituation(
+        "<p>Sales a la calle sin llevarte absolutamente nada, no sabes donde están tus amigos, ni puedes volver a casa pues te dejaste las llaves.</p>\
+        <p>Para más inri, hace tanto frío que acabas con hipotermia tirado en un banco</p>\
+        <p>FIN</p>"
+    )
 };
 
 // ---------------------------------------------------------------------------
@@ -79,23 +96,12 @@ undum.game.start = "start";
  * possess. We don't have to be exhaustive, but if we miss one out then
  * that quality will never show up in the character bar in the UI. */
 undum.game.qualities = {
-    skill: new undum.IntegerQuality(
-        "Skill", {priority:"0001", group:'stats'}
-    ),
-    stamina: new undum.NumericQuality(
-        "Stamina", {priority:"0002", group:'stats'}
-    ),
-    luck: new undum.FudgeAdjectivesQuality( // Fudge as in the FUDGE RPG
-        "<span title='Skill, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Luck</span>",
-        {priority:"0003", group:'stats'}
-    ),
-
-    inspiration: new undum.NonZeroIntegerQuality(
-        "Inspiration", {priority:"0001", group:'progress'}
-    ),
-    novice: new undum.OnOffQuality(
-        "Novice", {priority:"0002", group:'progress', onDisplay:"&#10003;"}
-    )
+    llaves: new undum.OnOffQuality(
+        "Llaves", {priority:"0001", group:'objetos', onDisplay:"&#10003;"},),
+    cartera: new undum.OnOffQuality(
+        "Cartera", {priority:"0002", group:'objetos', onDisplay:"&#10003;"}),
+    chaqueta: new undum.OnOffQuality(
+        "Chaqueta", {priority:"0003", group:'objetos', onDisplay:"&#10003;"})
 };
 
 // ---------------------------------------------------------------------------
@@ -105,18 +111,15 @@ undum.game.qualities = {
  * the end. It is an error to have a quality definition belong to a
  * non-existent group. */
 undum.game.qualityGroups = {
-    stats: new undum.QualityGroup(null, {priority:"0001"}),
-    progress: new undum.QualityGroup('Progress', {priority:"0002"})
+    objetos: new undum.QualityGroup('Objetos', {priority:"0001"})
 };
 
 // ---------------------------------------------------------------------------
 /* This function gets run before the game begins. It is normally used
  * to configure the character at the start of play. */
 undum.game.init = function(character, system) {
-    character.qualities.skill = 12;
-    character.qualities.stamina = 12;
-    character.qualities.luck = 0;
-    character.qualities.novice = 1;
-    character.qualities.inspiration = 0;
-    system.setCharacterText("<p>You are starting on an exciting journey.</p>");
+    character.qualities.llaves = 0;
+    character.qualities.cartera = 0;
+    character.qualities.chaqueta = 0;
+    system.setCharacterText("<p>¡Vas a ver al de los americanos!</p>");
 };
