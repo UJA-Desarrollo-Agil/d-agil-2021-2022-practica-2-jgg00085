@@ -30,8 +30,9 @@ undum.game.slideUpSpeed = 500
 undum.game.situations = {
     start: new undum.SimpleSituation(
         "<h1>Estás en casa viciándote como siempre...</h1>\
-        <img src='media/games/tutorial/woodcut1.png' class='float_center'>\
-        <p>\"Buenas nocheS! I've heard you come in the behalf of Mr. Rosenberg. I hope his... *BOOM*</p>\
+        <img src='media/img/buenasnoches.png' class='float_center' style='width: 500px;'>\
+        <br/>\
+        <p>\"Buenas nocheS! I understand you are here on the behalf of Mr. Rosenberg. I hope any recent... *BOOM*</p>\
         \
         <p>Yo: Buah, otra vez se ha cerrado el juego este. Desde que instalé la versión definitiva del GTA Trilogy todo son problemas, macho.\
         Ni parches, ni nada, no hay manera de hacer que vaya bien este juego. 60€ para nada, llego a saberlo y me quedo jugando a los originales...</p>\
@@ -44,7 +45,7 @@ undum.game.situations = {
     movil: new undum.SimpleSituation(
         "<p>Dejas de lado el ordenador, y te dispones a mirar lo que sucede en el mundo.</p>\
         <p>Vamos, que desbloqueas tu FlyPhone 14 Pro MiniMax y abres Twitter e Instagram, en el que pierdes más de media hora mirando las tonterías de siempre, como\
-        las encuestas viendo si sube o baja la intención de voto de según que bloques en una provincia que no sabes ni situar en un mapa o mirando vídeos de perritos y comida.</p>\
+        las encuestas, viendo si sube o baja la intención de voto de según qué bloques en una provincia que no sabes ni situar en un mapa, o mirando vídeos de perritos y comida.</p>\
         <p>En todo este tiempo no te salta ningún mensaje, ni siquiera de tu novia, que está de viaje en Madrid y, cuando te das cuenta, ves que el tiempo se te ha echado encima, pues habías\
         quedado para ver la obra de Goyo Jiménez, el de los americanos, en el Infanta Leonor. </p>\
         <p>Así que te dispones a <a href='./cogercosas'>coger las cosas</a> o <a href='finalcallesinnada'>sales directamente sin nada</a>.</p>",
@@ -62,27 +63,75 @@ undum.game.situations = {
         }
     ),
     calle: new undum.SimpleSituation(
-        "<p>Calle</p>\
-        <p class='transient'><a href='espectaculo'>Entra al teatro</a></p>"
+        "<h1>Se te lía en la calle</h1>\
+        <p>Ya en la calle, recorres las estrechas calles de Jaén en dirección al Teatro Infanta Leonor cuando, por azares de la vida, \
+        se desata una fuerte lluvia para lo cual, y por falta de previsión tuya, no habías consultado en el AEMET y, por tanto, no tienes un paragüas.</p>\
+        <p>Por tanto, decides <a href='./correralteatro'>correr hacia el teatro</a> o <a href='./volveraporparaguas'>volver a casa rápidamente </a> a por un paragüas...</p>",
+        {
+            heading: "Mirando el FlyPhone",
+            actions: {
+                "correralteatro": function (character, system, to) {
+                    system.write("<p>Corriendo al teatro, llegas empapado y tu entrada se moja, imposibilitando que el lector pueda verificar tu pase.</p>\
+                    <p class='transient'>Así que optas por <a href='espectaculo'>aguantarte</a> o <a href='espectaculo'>colarte</a></p>");
+                },
+                "volveraporparaguas": function (character, system, to) {
+                    system.write("<p>Vuelves rápidamente a tu casa sin mojarte aunque, debido a las fuertes lluvias, quedas atrapado en el ascensor por un breve corte de luz.</p>\
+                    <p>Por fortuna, dura poco tiempo, aunque para cuando vuelves a estar en la calle, el tiempo ya se te ha echado encima</p>\
+                    <p class='transient'>Así que optas por <a href='espectaculo'>aguantarte</a> o <a href='espectaculo'>probar suerte</a> con la puerta de salida de emergencia</p>");
+                }
+            }
+        }
 
     ),
     espectaculo: new undum.SimpleSituation(
-        "<p>Espectáculo</p>\
-        <p class='transient'><a href='casa'>Tira pa casa</a></p>"
+        "<p><b>Un encargado</b>: ¡Eh tú!.... Ostras, tío, ¿que haces por aquí?</p>\
+        <p>Yo: Eh, Paco, ¿qué pasa tío?, pues nada, que venía a ver al de los americanos, y entre la lluvia y todo pues no he podido entrar...</p>\
+        <p>Paco,el encargado: A ver, déjame que saque mi FlyPhone con el lector de la empresa y dame tu entrada.</p>\
+        <p>Yo: toma</p>\
+        <p>Paco, el encargado: Un momento... Vale, anfiteatro B, fila 7, asiento 26. Hmm... vale, vamos para adentro</p>\
+        <br/>\
+        <p class='transient'><a href='espectaculopartedos'>Entrar a ver el monólogo</a></p>"
+    ),
+    espectaculopartedos: new undum.SimpleSituation(
+        "<h1>La decepción</h1>\
+        <p class='transient'>Tras tanto lío, acabas sentado detrás de un cabezón que no te deja ver apenas, y flanqueado a ambos lados por un señor mayor que no parece entender el monólogo\
+        y la típica parejita que, para a ver venido a lo que están haciendo, mejor haber pillado una habitación de hotel...</p>\
+        <p> Al final, optas por <a href='./aguantar'>aguantarte</a> e intentar disfrutar el monólogo en la medida de lo posible, o por <a href='salirporpatas'>irte antes de tiempo</a></p>",
+        {
+            actions: {
+                "aguantar": function (character, system, to) {
+                    system.write("<p>Aguantas como bien puedes la hora y media de espectáculo que queda.</p>\
+                    <p class='transient'>Por fin termina y <a href='salirporpatas'>sales rápidamente del lugar</a>.</p>");
+                }
+            }
+        }
 
     ),
-    casa: new undum.SimpleSituation(
-        "<p>Casa</p>\
-        <p class='transient'><a href='fin'>Apaga la alarma</a></p>"
-
+    salirporpatas: new undum.SimpleSituation(
+        "<h1>De vuelta a casa</h1>\
+        <p>Ya de vuelta a casa, por fortuna sin lluvia, disfrutas de un paseo relajado, aunque notando algo de frío, pues la noche ya ha caído. Sin embargo, \
+        disfrutas del inconfundible olor a petricor.</p>\
+        <p>Pero, por si creías que obas a acabar bien el día, casi al llegar a tu casa te das cuenta de que la chaqueta y, en consecuencia, las llaves, se quedaron en el teatro, ya cerrado.</p>\
+        <p>Entonces, aparece Paqui, la vecina cotilla de enfrente con su compra, o cotilleo, en el súper de última hora y, apiadándose de su joven vecino, te ofrece cobijo en su casa, \
+        al cual decides <a href='./aceptarcotilla'>aceptar su invitación</a> o <a href='./rechazarcotilla'>rechazarla</a>.</p>",
+        {
+            actions: {
+                "aceptarcotilla": function (character, system, to) {
+                    system.write("<p>Terminas el día en el sofá de tu vecina cenando sopa de bote mientras se queda por todo y te sonsaca temas familiares. Poco más tarde vuelve tu familia y\
+                    <a href='finaltrasteatro'>vuelves a casa</a>.</p>");
+                },
+                "rechazarcotilla": function (character, system, to) {
+                    system.write("<p>te quedas esperando cual mendigo en el portal de casa, hasta que aparece tu familia y <a href='finaltrasteatro'>vuelves a casa</a>.</p>");
+                }
+            }
+        }
     ),
-    fin: new undum.SimpleSituation(
-        "<p>FIN</p>"
-
+    finaltrasteatro: new undum.SimpleSituation(
+        "<h1>FIN</h1>"
     ),
     finalcallesinnada: new undum.SimpleSituation(
         "<p>Sales a la calle sin llevarte absolutamente nada, no sabes donde están tus amigos, ni puedes volver a casa pues te dejaste las llaves.</p>\
-        <p>Para más inri, hace tanto frío que acabas con hipotermia tirado en un banco</p>\
+        <p>Para más inri, hace tanto frío que acabas con hipotermia tirado en un banco, esperando varias horas hasta que vuelve tu familia y puedes volver a entrar a casa.</p>\
         <p>FIN</p>"
     )
 };
