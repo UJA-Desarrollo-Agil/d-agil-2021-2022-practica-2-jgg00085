@@ -95,6 +95,10 @@ undum.game.situations = {
     espectaculopartedos: new undum.SimpleSituation(
         "<h1>La decepción</h1>\
         <img src='media/img/goyojimenez.jpg' class='float_center' style='width: 500px;'>\
+           <iframe width='100%' height='400' src='https://www.youtube.com/embed/dkWrx1gizOw' \
+           title='YouTube video player' \
+           frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' \
+           allowfullscreen></iframe>\
         <p class='transient'>Tras tanto lío, acabas sentado detrás de un cabezón que no te deja ver apenas, y flanqueado a ambos lados por un señor mayor que no parece entender el monólogo\
         y la típica parejita que, para a ver venido a lo que están haciendo, mejor haber pillado una habitación de hotel...</p>\
         <p> Al final, optas por <a href='./aguantar'>aguantarte</a> e intentar disfrutar el monólogo en la medida de lo posible, o por <a href='salirporpatas'>irte antes de tiempo</a></p>",
